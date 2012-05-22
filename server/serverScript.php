@@ -14,7 +14,7 @@ $request_method =  $_SERVER['REQUEST_METHOD'];
 
 switch($request_method){
 
-    /*
+
     //json post
     case 'POST':
 
@@ -33,35 +33,38 @@ switch($request_method){
         // echo $jsonk;
         break;
 
+
+
+    /*
+        case 'POST':
+
+            //$received = print_r($_POST,true);
+
+            $received = file_get_contents('php://input');
+
+            $result_array["request_method"] = "POST".$received;
+            $result_array["content_type"] = "xml";
+
+            $json_result = json_encode($result_array);
+
+            echo $json_result;
+
+            break;
+
+
+        case 'GET':
+
+            $received = file_get_contents('php://input');
+
+            $result_array["request_method"] = "GET" .$received;
+            $result_array["content_type"] = "xml";
+
+            $json_result = json_encode($result_array);
+
+            echo $json_result;
+
+            break;
     */
-    case 'POST':
-
-        //$received = print_r($_POST,true);
-
-        $received = file_get_contents('php://input');
-
-        $result_array["request_method"] = "POST".$received;
-        $result_array["content_type"] = "xml";
-
-        $json_result = json_encode($result_array);
-
-        echo $json_result;
-
-        break;
-
-
-    case 'GET':
-
-        $received = file_get_contents('php://input');
-
-        $result_array["request_method"] = "GET" .$received;
-        $result_array["content_type"] = "xml";
-
-        $json_result = json_encode($result_array);
-
-        echo $json_result;
-
-        break;
 
 }
 

@@ -3,18 +3,18 @@
 chathuranga tennakoon
  *
  */
-class WsClient
+include("WebServiceClient.php");
+
+
+class WebServiceClientImpl implements WebServiceClient
 {
 
+    public function callJsonWebServiceAndRetrieveData(WebServiceConfig $wsConfig){
 
 
-    public function callJsonWebServiceAndRetrieveData(){
-
-
-        $initial_data = array('chathuranga'=>'darshana chathuranga');
-
-        //convert into json object
-        $json_encoded_data =json_encode($initial_data);
+        $initial_data_array = $wsConfig->getDataInRequest();
+        //convert the initial data into json object
+        $json_encoded_data =json_encode($initial_data_array);
         // Initialize curl with the URL of localhost
         $ch = curl_init("http://localhost/PhpWsFramework/server/serverScript.php");
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -32,6 +32,7 @@ class WsClient
 
         curl_close($ch);
 
+        //output is return  as an array
         return $output_array;
     }
 
@@ -78,7 +79,6 @@ class WsClient
         return $output_array;
 
     }
-
 
 }//WsClient
 
