@@ -1,10 +1,10 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: root
- * Date: 5/22/12
- * Time: 3:44 PM
- * To change this template use File | Settings | File Templates.
+/*
+ * chathuranga tennakoon
+ * chathuranga.t@gmail.com
+ * http://chathurangat.blogspot.com
+ * http://lk.linkedin.com/in/chathurangatennakoon
+ * https://github.com/chathurangat
  */
 
 class WebServiceConfig

@@ -6,22 +6,9 @@
  * http://lk.linkedin.com/in/chathurangatennakoon
  * https://github.com/chathurangat
  */
-
-class RequestMethod
+interface WsServer
 {
 
-    const HTTP_POST="POST";
-    const HTTP_GET="GET";
-    const HTTP_PUT="PUT";
-
-
-}
-
-
-
-class ContentType{
-
-    const JSON="json";
-    const XML="xml";
+   public function getIncomingDataFromClientRequest();
 
 }

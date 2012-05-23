@@ -9,6 +9,7 @@ include("WebServiceClient.php");
 class WebServiceClientImpl implements WebServiceClient
 {
 
+
     public function callJsonWebServiceAndRetrieveData(WebServiceConfig $wsConfig){
 
 
@@ -16,13 +17,14 @@ class WebServiceClientImpl implements WebServiceClient
         //convert the initial data into json object
         $json_encoded_data =json_encode($initial_data_array);
         // Initialize curl with the URL of localhost
-        $ch = curl_init("http://localhost/PhpWsFramework/server/serverScript.php");
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        $ch = curl_init($wsConfig->getServiceUrl());
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $wsConfig->getRequestMethod());
 
         curl_setopt($ch, CURLOPT_POSTFIELDS,$json_encoded_data);
+
         //Tell php curl that we want the data returned to us instead of being display
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/'.$wsConfig->getContentType().''));
         //Execute curl and put the output in $output_json.
         $output_json = curl_exec ($ch);
 

@@ -3,7 +3,8 @@
  * chathuranga tennakoon
  * chathuranga.t@gmail.com
  * http://chathurangat.blogspot.com
- *
+ * http://lk.linkedin.com/in/chathurangatennakoon
+ * https://github.com/chathurangat
  */
 
 /* this page is developed to show a  demonstration on how to receive the web service request */
@@ -20,6 +21,7 @@ switch($request_method){
 
         $json_object = file_get_contents('php://input');
 
+
         //printing the decode jon array
         $result_array = json_decode($json_object,true);
 
@@ -29,8 +31,25 @@ switch($request_method){
         $json_result = json_encode($result_array);
 
         echo  $json_result;
+        break;
 
-        // echo $jsonk;
+
+
+    //json get
+    case 'GET':
+
+        $json_object = file_get_contents('php://input');
+
+        //printing the decode jon array
+        $result_array = json_decode($json_object,true);
+
+        $result_array["request_method"] = "GET";
+        $result_array["content_type"] = "json";
+
+        $json_result = json_encode($result_array);
+
+        echo  $json_result;
+
         break;
 
 

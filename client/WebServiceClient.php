@@ -6,7 +6,7 @@
  * Time: 3:48 PM
  * To change this template use File | Settings | File Templates.
  */
-//include("WebServiceConfig.php");
+
 
 
 interface WebServiceClient
@@ -15,3 +15,7 @@ interface WebServiceClient
 public function callJsonWebServiceAndRetrieveData(WebServiceConfig $wsConfig);
 
 }//WebServiceClient
+
+
+
+?>
