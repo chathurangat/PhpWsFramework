@@ -11,4 +11,6 @@ interface WsServer
 
    public function getIncomingDataFromClientRequest();
 
+   public function sendResponseForClientRequest();
+
 }

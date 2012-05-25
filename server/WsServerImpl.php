@@ -6,56 +6,34 @@
  * http://lk.linkedin.com/in/chathurangatennakoon
  * https://github.com/chathurangat
  */
+include ("WsServer.php");
+
 class WsServerImpl implements WsServer
 {
 
 
-public function getIncomingDataFromClientRequest(){
+    public function getIncomingDataFromClientRequest(){
 
-    $request_method =  $_SERVER['REQUEST_METHOD'];
+        $json_object = file_get_contents('php://input');
 
+        //printing the decode jon array
+        $incoming_data = json_decode($json_object,true);
 
+        $result_array["incoming_data"]=$incoming_data;
 
-    switch($request_method){
+        $result_array["request_method"] = $_SERVER['REQUEST_METHOD'];
 
+        $json_result = json_encode($result_array);
 
-        //json post
-        case 'POST':
+        return  $json_result;
 
-            $json_object = file_get_contents('php://input');
-
-
-            //printing the decode jon array
-            $result_array = json_decode($json_object,true);
-
-            $result_array["request_method"] = "POST";
-            $result_array["content_type"] = "json";
-
-            $json_result = json_encode($result_array);
-
-            return  $json_result;
-            break;
-
-
-
-        //json get
-        case 'GET':
-
-            $json_object = file_get_contents('php://input');
-
-            //printing the decode jon array
-            $result_array = json_decode($json_object,true);
-
-            $result_array["request_method"] = "GET";
-            $result_array["content_type"] = "json";
-
-            $json_result = json_encode($result_array);
-
-            return  $json_result;
-
-            break;
     }
 
-}
 
-}
+
+    public function sendResponseForClientRequest()
+    {
+
+    }
+
+}//WsServerImpl

@@ -61,7 +61,7 @@ class WebServiceClientImpl implements WebServiceClient
         //print $xml->asXML();
 
         // Initialize curl with the URL of localhost
-        $ch = curl_init("http://localhost/PhpWsFramework/server/serverScript.php");
+        $ch = curl_init("http://localhost/PhpWsFramework/server/serverTest.php");
         //Tell php curl that we want the data returned to us instead of being display
         //curl_setopt($ch, CURLOPT_POSTFIELDS, array('json'=>$xml->asXML()));
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
